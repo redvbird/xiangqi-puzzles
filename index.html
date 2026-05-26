@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#7a3b0c">
+  <title>象棋杀棋练习</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 题库列表页 -->
+  <section id="page-list" class="page active">
+    <header class="topbar">
+      <h1>象棋杀棋练习</h1>
+      <div class="subtitle">提升将杀感觉与算度能力</div>
+    </header>
+
+    <div class="category-tabs" id="category-tabs">
+      <button class="tab active" data-cat="all">全部</button>
+      <button class="tab" data-cat="1">一步杀</button>
+      <button class="tab" data-cat="2">两步杀</button>
+      <button class="tab" data-cat="3">三步杀</button>
+      <button class="tab" data-cat="n">多步杀</button>
+    </div>
+
+    <div class="puzzle-list" id="puzzle-list"></div>
+  </section>
+
+  <!-- 练习页 -->
+  <section id="page-puzzle" class="page">
+    <header class="topbar">
+      <button class="icon-btn" id="btn-back">← 返回</button>
+      <div class="title-block">
+        <div class="title" id="puzzle-title">题目</div>
+        <div class="meta" id="puzzle-meta"></div>
+      </div>
+      <button class="icon-btn" id="btn-restart">↺</button>
+    </header>
+
+    <div class="board-wrap">
+      <div id="board"></div>
+    </div>
+
+    <div class="status-bar" id="status-bar">请走棋</div>
+
+    <div class="action-bar">
+      <button class="action" id="btn-hint">提示</button>
+      <button class="action" id="btn-answer">查看答案</button>
+      <button class="action primary" id="btn-next">下一题</button>
+    </div>
+  </section>
+
+  <script src="js/rules.js"></script>
+  <script src="js/puzzles.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
