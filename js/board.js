@@ -90,9 +90,11 @@ const BoardView = (function () {
       for (let c = 0; c < COLS; c++) {
         const sq = document.createElement('div');
         sq.className = 'square';
-        // 让格子中心对应棋点：每格宽 1/9，高 1/10；偏移使中心落在线的交点
-        sq.style.left = `calc(${c} * (100% / 9) - (100% / 18))`;
-        sq.style.top = `calc(${r} * (100% / 10) - (100% / 20))`;
+        // SVG 网格的棋点位于 (50 + c*100, 50 + r*100) / (900,1000)，即 (2c+1)/18, (2r+1)/20。
+        // 让 square 的中心精确对齐这一点：center = left + width/2 = (2c+1)/18
+        // 因此 left = c/9，top = r/10（不需要再减半格）。
+        sq.style.left = `calc(${c} * (100% / 9))`;
+        sq.style.top = `calc(${r} * (100% / 10))`;
         sq.style.width = `calc(100% / 9)`;
         sq.style.height = `calc(100% / 10)`;
         sq.addEventListener('click', () => onTap && onTap(r, c));
